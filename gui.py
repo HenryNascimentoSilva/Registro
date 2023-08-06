@@ -84,5 +84,11 @@ l_date.place(x=220, y=10)
 datebirth = DateEntry(frame_details, width=18, justify=CENTER, background='darkblue', foreground='white', borderwidth=2, year=2023)
 datebirth.place(x=224, y=40)
 
+# Adress Field
+l_adress = Label(frame_details, text='Adress', anchor=NW, font=('Ivy 10'), bg=colors.co1, fg=colors.co4)
+l_adress.place(x=220, y=70)
+e_adress = Entry(frame_details, width=15, justify='left', relief=SOLID)
+e_adress.place(x=224, y=100)
+
 # Window main loop  
 window.mainloop()
