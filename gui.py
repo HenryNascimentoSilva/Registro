@@ -61,5 +61,11 @@ l_name.place(x=4, y=70)
 e_name = Entry(frame_details, width=30, justify='left', relief=SOLID)
 e_name.place(x=7, y=100)
 
+# Telephone Field
+l_tel = Label(frame_details, text='Telephone', anchor=NW, font=('Ivy 10'), bg=colors.co1, fg=colors.co4)
+l_tel.place(x=4, y=130)
+e_tel = Entry(frame_details, width=15, justify='left', relief=SOLID)
+e_tel.place(x=7, y=160)
+
 # Window main loop  
 window.mainloop()
