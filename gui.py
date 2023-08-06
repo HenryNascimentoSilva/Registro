@@ -5,6 +5,10 @@ from tkinter import ttk
 from tkinter import messagebox
 from tkinter import filedialog as fd
 
+# Calendar
+from tkcalendar import Calendar,DateEntry
+from datetime import date
+
 # Pillow
 from PIL import ImageTk, Image
 
@@ -73,6 +77,12 @@ l_gender.place(x=127, y=130)
 c_gender = Combobox(frame_details, width=7, font=('Ivy 8 bold'), justify=CENTER)
 c_gender['values'] = ('M', 'F')
 c_gender.place(x=130, y=160)
+
+# Date Field
+l_date = Label(frame_details, text='Birth Date', anchor=NW, font=('Ivy 10'), bg=colors.co1, fg=colors.co4)
+l_date.place(x=220, y=10)
+datebirth = DateEntry(frame_details, width=18, justify=CENTER, background='darkblue', foreground='white', borderwidth=2, year=2023)
+datebirth.place(x=224, y=40)
 
 # Window main loop  
 window.mainloop()
