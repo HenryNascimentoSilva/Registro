@@ -67,5 +67,12 @@ l_tel.place(x=4, y=130)
 e_tel = Entry(frame_details, width=15, justify='left', relief=SOLID)
 e_tel.place(x=7, y=160)
 
+# Gender Field
+l_gender = Label(frame_details, text='Gender', anchor=NW, font=('Ivy 10'), bg=colors.co1, fg=colors.co4)
+l_gender.place(x=127, y=130)
+c_gender = Combobox(frame_details, width=7, font=('Ivy 8 bold'), justify=CENTER)
+c_gender['values'] = ('M', 'F')
+c_gender.place(x=130, y=160)
+
 # Window main loop  
 window.mainloop()
