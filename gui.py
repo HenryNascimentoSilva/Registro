@@ -55,5 +55,11 @@ l_name.place(x=4, y=10)
 e_name = Entry(frame_details, width=30, justify='left', relief=SOLID)
 e_name.place(x=7, y=40)
 
+# E-mail Field
+l_name = Label(frame_details, text='E-mail', anchor=NW, font=('Ivy 10'), bg=colors.co1, fg=colors.co4)
+l_name.place(x=4, y=70)
+e_name = Entry(frame_details, width=30, justify='left', relief=SOLID)
+e_name.place(x=7, y=100)
+
 # Window main loop  
 window.mainloop()
