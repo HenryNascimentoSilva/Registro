@@ -15,6 +15,8 @@ from PIL import ImageTk, Image
 # Colors
 import colors
 
+global image, image_string, l_image
+
 # Window
 window = Tk()
 window.title("")
@@ -87,7 +89,7 @@ datebirth.place(x=224, y=40)
 # Adress Field
 l_adress = Label(frame_details, text='Adress', anchor=NW, font=('Ivy 10'), bg=colors.co1, fg=colors.co4)
 l_adress.place(x=220, y=70)
-e_adress = Entry(frame_details, width=15, justify='left', relief=SOLID)
+e_adress = Entry(frame_details, width=20, justify='left', relief=SOLID)
 e_adress.place(x=224, y=100)
 
 # Course Field
@@ -95,10 +97,27 @@ course = ['Engineering', 'Medicine', 'Social', 'Mathematics', 'Other']
 
 l_course = Label(frame_details, text='Course', anchor=NW, font=('Ivy 10'), bg=colors.co1, fg=colors.co4)
 l_course.place(x=220, y=130)
-c_course = Combobox(frame_details, width=7, font=('Ivy 8 bold'), justify=CENTER)
+c_course = Combobox(frame_details, width=20, font=('Ivy 8 bold'), justify=CENTER)
 c_course['values'] = course
 c_course.place(x=224, y=160)
 
-
+# Image Selector
+def ChooseImage():
+  global image, image_string, l_image
+  
+  image = fd.askopenfilename()
+  
+  image_string = image
+  
+  image = Image.open(image)
+  image = image.resize((130,130))
+  image = ImageTk.PhotoImage(image)
+  image = Label(frame_logo, image=image, bg=colors.co1, fg=colors.co4)
+  image.place(x=390, y=10)
+  
+# Button Image
+button_load = Button(frame_details, command=ChooseImage, text='Load Photo'.upper(), width=20, compound=CENTER, anchor=CENTER, overrelief=RIDGE, font=('Ivy 7 bold'), bg=colors.co1, fg=colors.co0)
+button_load.place(x=390, y=160)
+ 
 # Window main loop  
 window.mainloop()
