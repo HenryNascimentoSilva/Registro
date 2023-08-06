@@ -115,9 +115,91 @@ def ChooseImage():
   image = Label(frame_logo, image=image, bg=colors.co1, fg=colors.co4)
   image.place(x=390, y=10)
   
+  button_load['text'] = 'Change Photo'
+  
 # Button Image
 button_load = Button(frame_details, command=ChooseImage, text='Load Photo'.upper(), width=20, compound=CENTER, anchor=CENTER, overrelief=RIDGE, font=('Ivy 7 bold'), bg=colors.co1, fg=colors.co0)
 button_load.place(x=390, y=160)
- 
+
+# Tabela Alunos
+def ShowStudents():
+
+    # creating a treeview with dual scrollbars
+    list_header = ['ID','Name','E-mail', 'Telephone','Gender','Date', 'Adress','Course']
+
+    # view all students
+    df_list = []
+
+    tree_student = ttk.Treeview(frame_tabel, selectmode="extended",columns=list_header, show="headings")
+
+    # vertical scrollbar
+    vsb = ttk.Scrollbar(frame_tabel, orient="vertical", command=tree_student.yview)
+    # horizontal scrollbar
+    hsb = ttk.Scrollbar(frame_tabel, orient="horizontal", command=tree_student.xview)
+
+    tree_student.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+    tree_student.grid(column=0, row=1, sticky='nsew')
+    vsb.grid(column=1, row=1, sticky='ns')
+    hsb.grid(column=0, row=2, sticky='ew')
+    frame_tabel.grid_rowconfigure(0, weight=12)
+
+    hd=["nw","nw","nw","center","center","center","center","center","center"]
+    h=[40,150,150,70,70,70,120,100,100]
+    n=0
+
+    for col in list_header:
+        tree_student.heading(col, text=col.title(), anchor=NW)
+        # adjust the column's width to the header string
+        tree_student.column(col, width=h[n],anchor=hd[n])
+
+        n+=1
+
+    for item in df_list:
+        tree_student.insert('', 'end', values=item)
+
+# Search Frame
+
+frame_search = Frame(frame_buttons, width=40, height=50, bg=colors.co1, relief=RAISED)
+frame_search.grid(row=0, column=0, pady=10, padx=10, sticky=NSEW)
+l_name = Label(frame_search, text="Search Student [ Entry ID ]", height=1,anchor=NW, font=('Ivy 10'), bg=colors.co1, fg=colors.co4)
+l_name.grid(row=0, column=0, pady=10, padx=0, sticky=NSEW)
+e_search = Entry(frame_search, width=5, justify='center',relief="solid",font=('Ivy 10'))
+e_search.grid(row=1, column=0, pady=10, padx=0, sticky=NSEW)
+
+# Search Button
+button_search = Button(frame_search, anchor=CENTER, text="Search", width=9, overrelief=RIDGE,  font=('ivy 7 bold'),bg=colors.co1, fg=colors.co0 )
+button_search.grid(row=1, column=1, pady=10, padx=0, sticky=NSEW)
+
+# Buttons
+
+# Add Image
+app_img_add = Image.open('resources/add.png')
+app_img_add = app_img_add.resize((25,25))
+app_img_add = ImageTk.PhotoImage(app_img_add)
+app_add = Button(frame_buttons,  image=app_img_add, text=" Add Student", width=100, compound=LEFT, relief=GROOVE, overrelief=RIDGE, font=('Ivy 11'), bg=colors.co1, fg=colors.co0)
+app_add.grid(row=1, column=0, pady=5, padx=10, sticky=NSEW)
+
+# Update Image
+app_img_att = Image.open('resources/update.png')
+app_img_att = app_img_att.resize((25,25))
+app_img_att = ImageTk.PhotoImage(app_img_att)
+app_att = Button(frame_buttons, image=app_img_att, text=" Update", width=100, compound=LEFT, relief=GROOVE, overrelief=RIDGE, font=('Ivy 11'), bg=colors.co1, fg=colors.co0)
+app_att.grid(row=2, column=0, pady=5, padx=10, sticky=NSEW)
+
+# Delete Image
+app_img_del = Image.open('resources/delete.png')
+app_img_del = app_img_del.resize((25,25))
+app_img_del = ImageTk.PhotoImage(app_img_del)
+app_del = Button(frame_buttons, image=app_img_del, text=" Delete", width=100, compound=LEFT, relief=GROOVE, overrelief=RIDGE, font=('Ivy 11'), bg=colors.co1, fg=colors.co0)
+app_del.grid(row=3, column=0, pady=5, padx=10, sticky=NSEW)
+
+
+# Separator Line
+l_line = Label(frame_buttons, relief=GROOVE, text='h', width=1, height=123, anchor=NW, font=('Ivy 1'), bg=colors.co1, fg=colors.co0)
+l_line.place(x=240, y=15)
+
+# Call Tabel
+ShowStudents()
+
 # Window main loop  
 window.mainloop()
