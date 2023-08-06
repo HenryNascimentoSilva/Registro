@@ -90,5 +90,15 @@ l_adress.place(x=220, y=70)
 e_adress = Entry(frame_details, width=15, justify='left', relief=SOLID)
 e_adress.place(x=224, y=100)
 
+# Course Field
+course = ['Engineering', 'Medicine', 'Social', 'Mathematics', 'Other']
+
+l_course = Label(frame_details, text='Course', anchor=NW, font=('Ivy 10'), bg=colors.co1, fg=colors.co4)
+l_course.place(x=220, y=130)
+c_course = Combobox(frame_details, width=7, font=('Ivy 8 bold'), justify=CENTER)
+c_course['values'] = course
+c_course.place(x=224, y=160)
+
+
 # Window main loop  
 window.mainloop()
