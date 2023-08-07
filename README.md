@@ -17,10 +17,15 @@ A simple program written in python to create, read, update, delete and search da
 
 ## Libraries
 
-if running the source code, the following libraries will be needed:
+If running the source code, the following libraries will be needed:
 
 ```bash
 pip install pillow
 pip install tkcalendar
 ```
+
+## TODO
+- Add new languages
+- Add darkmode
+- Add themes
     
