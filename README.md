@@ -4,7 +4,8 @@
 A simple registration school/college system!
 
 
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![SRSSRS](https://github.com/HenryNascimentoSilva/Registro/assets/115803233/c682cd9d-a613-4be1-822d-d7b6da5d0835)
+
 
 
 ## CRUD
