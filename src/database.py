@@ -1,6 +1,5 @@
 import sqlite3
 
-
 class RegisterSystem:
     # Database
     def __init__(self):
@@ -60,7 +59,9 @@ class RegisterSystem:
 
     def delete(self, id):
         self.c.execute("DELETE FROM students WHERE id=?", (id,))
-        self.conn.commit
-
-
+        self.conn.commit()
+        
+    # Close the database
+    def __del__(self):
+        self.conn.close()
 registersystem = RegisterSystem()
